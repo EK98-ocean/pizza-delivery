@@ -178,5 +178,16 @@ $("button#checkout").click(function(){
     $("#totalbill").append("Your bill plus delivery fee is: " + deliverytotal + " KES");
   });
 
-    
+  $("button#final-order").click(function(event){
+    event.preventDefault();
+
+    $("#pizzatotal").hide();
+    $(".delivery").hide();
+    $("button#final-order").hide();
+    let deliverytotal= checkoutTotal + 100;
+    console.log("Your final bill is: " + deliverytotal + " KES");
+    let customer = $("input#name").val();
+    let phone = $("input#phone").val();
+    let location = $("input#location").val();
+
     
