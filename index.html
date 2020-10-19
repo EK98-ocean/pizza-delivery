@@ -59,7 +59,7 @@
               <h4>Place your order using the order form below:</h4>
               <br>
               <div class="row">
-                  <div class="col-sm-5">
+                  <div class="col-md-6">
                     <form action="">
                         <label for="select">Select the size of your pizza</label>
                         <select class="browser-default custom-select custom-select-md mb-3" id="size">
@@ -107,6 +107,44 @@
                       
                     </form>
                     </div>
+                    <div class="col-md-6">
+                        <div id="info">
+                            <p>Once you place your order, we will endeavour to get it to you as soon as possible.</p>
+                            <p>Please consider giving a tip to your delivery person upon arrival.</p>
+                            <p><strong>N.B.: Orders may only be paid for in cash on delivery!</strong></p>
+                        </div>
+                        <div class= "total">
+                            <h4>Your Order is:</h3>
+                            <div id="your-orders">
+                                <table class="table table-sm  totaltable">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">Size</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Crust</th>
+                                    <th scope="col">Toppings</th>
+                                    <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersmade">
+                                    <tr>
+                                    <td id="pizzasize"></td>
+                                    <td id="pizzaname"></td>
+                                    <td id="pizzacrust"></td>
+                                    <td id="pizzatopping"></td>
+                                    <td id="totals"></td>
+                                    </tr>                  
+                                </tbody>
+                                </table>
+                                <p id="pizzatotal"></p>
+                                <p id="totalbill"></p> 
+                                <p id="addedprice">Delivery will cost 100KES</p>
+                                <p id="finallmessage"></p>
+                            </div>
+                            <button class="btn btn-outline-primary addPizza">Add another pizza!</button>
+                            <button class="btn btn-outline-success deliver">Deliver to me!</button>
+                            <button class="btn btn-success" id="checkout">Checkout</button>
+                        </div>
                 </div>
     </body>
 </html>
