@@ -9,3 +9,50 @@ function Pizzabuilder (name, size, crust, topping, total){
   this.total = total;
 }
 
+$(document).ready(function(){
+    $("button.proceed").click(function(event){
+        let pname = $(".name option:selected").val();
+        let psize = $("#size option:selected").val();
+        let pcrust = $("#crust option:selected").val();
+        let ptopping = [];
+     $.each($("input[name='toppings']:checked"), function(){            
+        ptopping.push($(this).val());
+     });
+     console.log(ptopping.join(", "));
+
+     switch(pcrust){
+        case "0":
+          crust_price = 0;
+        break;
+        case "Crispy":
+          crust_price = 100;
+        break;
+        case "Stuffed":
+          crust_price = 200;
+        break;
+        case "Gluten-free":
+          crust_price = 200;
+        break;
+        default:
+          console.log("No price"); 
+      }
+
+     switch(psize){
+        case "0":
+          price =0;
+        break;
+        case "large":
+           price = 1400;
+           console.log(price);
+         break;
+         case "medium":
+           price = 1000;
+           console.log("The price is "+price);
+         break;
+         case "small":
+           price = 700;
+           console.log(price);
+         default:
+           console.log("Error, please enter a pizza size"); 
+       }
+  
