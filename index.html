@@ -67,7 +67,7 @@
                             <option value="large">Large -- 1400 KES</option>
                         </select>
                         <label for="select">Select Your Pizza</label>
-                        <select class="browser-default custom-select custom-select-md mb-3 id=name">
+                        <select class="browser-default custom-select custom-select-md mb-3" class="name">
                             <option selected value="0">Select pizza here</option>
                             <option value="Chicken Pizza">Chicken Pizza</option>
                             <option value="Margherita Pizza">Margherita Pizza</option>
@@ -102,7 +102,6 @@
                         </div>
                         <br><br>
                         <button type="submit" class="btn btn-success proceed">Proceed</button>
-                      
                     </form>
                 </div>
                 <div class="col-md-6">
@@ -111,7 +110,7 @@
                         <p>Please consider giving a tip to your delivery person upon arrival.</p>
                         <p><strong>N.B.: Orders may only be paid for in cash on delivery!</strong></p>
                     </div>
-                    <div class= "total">
+                    <div class= "tabulation">
                         <h4>Your Order is:</h3>
                         <div id="your-orders">
                             <table class="table table-sm  totaltable">
@@ -144,6 +143,16 @@
                         <button class="btn btn-success" id="checkout">Checkout</button>
                     </div>
                 </div>
+            </div>
+            <div class="delivery">
+                <form action="">
+                    <div class="form-group">
+                        <input type="text" id="location" class="form-control mb-3" placeholder="Delivery location: please provide a detailed description.">
+                        <input type="text" id="name" class="form-control mb-3" placeholder="Name">
+                        <input type="number" id="phone" class="form-control mb-3" placeholder="Pnone Number">
+                        <button class="btn btn-success" id="final-order">Place Order</button>
+                    </div>
+                </form>
             </div>    
     </body>
 </html>

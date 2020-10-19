@@ -1,12 +1,11 @@
 // business logic
-function Pizza(name, size, topping, crust, ) {
-    this.name = name;
-    this.size = size;
-    this.crust = crust;
-    this.topping 
-    this.
-  }
+var price , crust_price, topping_price ;
+let total = 0;
+function Pizzabuilder (name, size, crust, topping, total){
+  this.name = name;
+  this.size = size;
+  this.crust = crust;
+  this.topping = topping;
+  this.total = total;
+}
 
-switch(size{}
-
-$(document).ready
