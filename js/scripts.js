@@ -1,4 +1,5 @@
 // business logic
+//Pizza object
 var price , crust_price, topping_price ;
 let total = 0;
 function Pizzabuilder (name, size, crust, topping, total){
@@ -8,6 +9,7 @@ function Pizzabuilder (name, size, crust, topping, total){
   this.topping = topping;
   this.total = total;
 }
+
 
 $(document).ready(function(){
     $("button.proceed").click(function(event){
@@ -56,3 +58,27 @@ $(document).ready(function(){
            console.log("Error, please enter a pizza size"); 
        }
   
+    let topping_value = ptopping.length * 50;
+        console.log("Topping value " + topping_value);
+
+    total = price + crust_price + topping_value;
+    console.log(total);
+    let checkoutTotal = 0;
+    checkoutTotal = checkoutTotal + total;
+
+    // Alert to select pizza size
+    if((psize == "0") && (pcrust == "0")){
+        console.log("nothing selected");
+        $("button.proceed").show();
+        $("#info").show();
+        $("div.tabulation").hide();
+        alert("Please select your pizza size and crust");
+      }
+      else{
+        $("button.proceed").hide();
+        $("#info").hide();
+        $("div.tabulation").toggle();
+      }
+
+    
+    
