@@ -13,3 +13,32 @@
 img#about{
     max-width: 200px;
 }
+
+.Chicken{
+
+}
+
+.Margherita{
+
+}
+
+.Hawaiian{
+
+}
+
+img#Chicken{
+    max-height: 200px;
+}
+
+img#Margherita{
+    max-height: 200px;
+}
+
+img#Hawaiian{
+    max-height: 200px;
+}
+
+#pizza-selection{
+    margin: 5px;
+    margin-top: 15px;
+}

@@ -14,12 +14,12 @@
         </div>
         <div class="container-fluid section" id="about">
             <div class= row>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="about-image">
                             <img src="assets/shop.jpg" alt="Our Shop" id="about">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="content">
                         <h3>About Pizza Kenya</h3>
                         <p>Pizza Kenya started as a small, family-owned pizzeria in Nairobi, Kenya, in 1995. Since then, we have grown 
@@ -28,28 +28,85 @@
                         us, and we'll deliver it right to your doorstep.</p>
                         </div>
                     </div>
-                <div class= "col-md-4">
-                    <h3>Our Pizzas</h3>
-                    <div class= "Chicken">
-                        <img src="assets/chicken.jpg" alt= "Chicken Pizza">
+                </div>
+               
+                <div class= "row" id="pizza-selection">
+                <h3>Our Pizzas</h3>
+                <br>
+                    <div class= "col-md-3" id= "Chicken">
+                        <img src="assets/chicken.jpg" alt= "Chicken Pizza" id= Chicken>
                         <h4>Chicken Pizza</h4>
                         <p>Made with the finest, locally sourced chicken</p>
                     </div>
-                    <div class="Margherita">
-                        <img src="assets/margherita.jpg" alt="Margherita Pizza">
+                    <div class= "col-md-3" id= "Margherita">
+                        <img src="assets/margherita.jpg" alt="Margherita Pizza" id= Margherita>
                         <h4>Margherita Pizza</h4>
                         <p>Tasty tomatoes for our vegetarian guests</p>
                     </div>
-                    <div class="Hawaiian">
-                        <img src="assets/hawaiian.jpg" alt="Hawaiian Pizza">
+                    <div class= "col-md-3" id= "Hawaiian">
+                        <img src="assets/hawaiian.jpg" alt="Hawaiian Pizza" id= Hawaiian>
                         <h4>Hawaiian Pizza</h4>
                         <p>Controversial pineapple and ham, love it or hate it!</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
-
-        </div>
+        <div class="container-fluid order" id="make-order">
+            <div class="order-overlay">
+              <div class="controls-top text-center" id="Order-now"> 
+                <h2>Order Below</h2>
+              </div>
+              <h4>Place your order using the order form below:</h4>
+              <br>
+              <div class="row">
+                  <div class="col-sm-5">
+                    <form action="">
+                        <label for="select">Select the size of your pizza</label>
+                        <select class="browser-default custom-select custom-select-md mb-3" id="size">
+                            <option selected value="0">Select size here</option>
+                            <option value="small">Small -- 700 KES</option>
+                            <option value="medium">Medium -- 1000 KES</option>
+                            <option value="large">Large -- 1400 KES</option>
+                        </select>
+                        <label for="select">Select Your Pizza</label>
+                        <select class="browser-default custom-select custom-select-md mb-3 id=name">
+                            <option selected value="0">Select pizza here</option>
+                            <option value="Chicken Pizza">Chicken Pizza</option>
+                            <option value="Margherita Pizza">Margherita Pizza</option>
+                            <option value= "Hawaiian Pizza">Hawaiian Pizza</option>
+                        </select>
+                        <label for="crust">Select a crust</label>
+                        <select class="browser-default custom-select custom-select-md mb-3" id="crust">
+                            <option selected value="0">Select crust here</option>
+                            <option value="stuffed">Stuffed -- 200 KES</option>
+                            <option value="crispy">Crispy -- 100 KES</option>
+                            <option value="Gluten-free">Gluten-free-- 200 KES</option>
+                        </select>
+                      
+                      
+                      <label for="Toppings">Choose your toppings at 50 KES each:</label>
+                      <br>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                          <input type="checkbox" class="custom-control-input" id="Onions" value="Onions" name="toppings">
+                          <label class="custom-control-label" for="Onions">Onions</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                          <input type="checkbox" class="custom-control-input" id="Bacon" value="Bacon" name="toppings">
+                          <label class="custom-control-label" for="Bacon">Bacon</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                          <input type="checkbox" class="custom-control-input" id="Mushrooms" value="Mushrooms" name="toppings">
+                          <label class="custom-control-label" for="Mushrooms">Mushrooms</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                          <input type="checkbox" class="custom-control-input" id="Pepperoni" value="Pepperoni" name="toppings">
+                          <label class="custom-control-label" for="Pepperoni">Pepperoni</label>
+                        </div>
+                        <br><br>
+                      <button type="submit" class="btn btn-success proceed">Proceed</button>
+                      
+                    </form>
+                    </div>
+                </div>
     </body>
 </html>
