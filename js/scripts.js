@@ -152,13 +152,31 @@ $(document).ready(function(){
       var newOrder = new Pizzabuilder(pname, psize, pcrust, ptopping, total);
 
       $("#ordersmade").append('<tr><td id="pizzaname">' + newOrder.name + '</td><td id="pizzasize">' + newOrder.size + '</td><td id="pizzacrust">'+newOrder.crust + '</td><td id="pizzatopping">' + newOrder.topping + '</td><td id="totals">' + newOrder.total + '</td></tr>');
-      console.log(newOrder);
-           
-});
+      console.log(newOrder);     
+    });
 
 //Front-End
 
-    
+$("button#checkout").click(function(){ 
+    $("button#checkout").hide();
+    $("button.addPizza").hide();
+    $("button.deliver").toggle();
+    $("#addedprice").toggle();
+    console.log("Your total bills is " + checkoutTotal " KES");
+    $("#pizzatotal").append("Your bill is "+checkoutTotal + " KES");
+  });
+
+  $("button.deliver").click(function(){
+    $(".pizzatable").hide();
+    $(".tabulation h2").hide();
+    $(".delivery").toggle();
+    $("#addedprice").hide();
+    $("button.deliver").hide();
+    $("#pizzatotal").hide();
+    let deliverytotal= checkoutTotal + 100;
+    console.log("You will pay " + deliverytotal + " KES on delivery.");
+    $("#totalbill").append("Your bill plus delivery fee is: " + deliverytotal + " KES");
+  });
 
     
     
