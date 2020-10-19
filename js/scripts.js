@@ -2,6 +2,7 @@
 //Pizza object
 var price , crust_price, topping_price ;
 let total = 0;
+
 function Pizzabuilder (name, size, crust, topping, total){
   this.name = name;
   this.size = size;
@@ -57,7 +58,20 @@ $(document).ready(function(){
          default:
            console.log("Error, please enter a pizza size!"); 
        }
-  
+  // Alert to select pizza size
+  if((psize == "0") && (pcrust == "0")){
+    console.log("nothing selected");
+    $("button.proceed").show();
+    $("#info").show();
+    $("div.tabulation").hide();
+    alert("Please select your pizza size and crust");
+  }
+  else{
+    $("button.proceed").hide();
+    $("#info").hide();
+    $("div.tabulation").toggle();
+  }
+
     let topping_value = ptopping.length * 50;
         console.log("Topping value " + topping_value);
 
@@ -66,19 +80,7 @@ $(document).ready(function(){
     let checkoutTotal = 0;
     checkoutTotal = checkoutTotal + total;
 
-    // Alert to select pizza size
-    if((psize == "0") && (pcrust == "0")){
-        console.log("nothing selected");
-        $("button.proceed").show();
-        $("#info").show();
-        $("div.tabulation").hide();
-        alert("Please select your pizza size and crust");
-      }
-      else{
-        $("button.proceed").hide();
-        $("#info").hide();
-        $("div.tabulation").toggle();
-      }
+    
 
     // Query HTML for selections and add to IDs in order details
       $("#pizzaname").html($(".name option:selected").val());
@@ -154,18 +156,19 @@ $(document).ready(function(){
       $("#ordersmade").append('<tr><td id="pizzaname">' + newOrder.name + '</td><td id="pizzasize">' + newOrder.size + '</td><td id="pizzacrust">'+newOrder.crust + '</td><td id="pizzatopping">' + newOrder.topping + '</td><td id="totals">' + newOrder.total + '</td></tr>');
       console.log(newOrder);     
     });
-
+});
 //Front-End
+
 
 $("button#checkout").click(function(){ 
     $("button#checkout").hide();
     $("button.addPizza").hide();
     $("button.deliver").toggle();
     $("#addedprice").toggle();
-    console.log("Your total bills is " + checkoutTotal " KES");
-    $("#pizzatotal").append("Your bill is "+checkoutTotal + " KES");
+    $("#pizzatotal").append("Your total is " + checkoutTotal + " KES");
   });
 
+//   delivery fee addition
   $("button.deliver").click(function(){
     $(".pizzatable").hide();
     $(".tabulation h2").hide();
@@ -175,7 +178,7 @@ $("button#checkout").click(function(){
     $("#pizzatotal").hide();
     let deliverytotal= checkoutTotal + 100;
     console.log("You will pay " + deliverytotal + " KES on delivery.");
-    $("#totalbill").append("Your bill plus delivery fee is: " + deliverytotal + " KES");
+    $("#totalbill").append("Your total including the delivery fee is: " + deliverytotal + " KES");
   });
 
   $("button#final-order").click(function(event){
@@ -190,4 +193,21 @@ $("button#checkout").click(function(){
     let phone = $("input#phone").val();
     let location = $("input#location").val();
 
-    
+    // Order accepted message if delivery details provided
+    if ($("input#name").val() && $("input#phone").val() && $("input#location").val()!=""){
+  
+        $("#finallmessage").append("Thank you " + customer + ", we are preparing your pizza! Please be prepared to have it delivered at "+ location + ". You are reminded that the total due is " + deliverytotal + " KES. Please have it ready, and please consider a tip!");
+        $("#totalbill").hide();
+        $("#finallmessage").toggle();
+      }
+      
+      else {
+        alert("Please enter your delivery details.");
+        $(".delivery").show();
+        $("button#final-order").show();
+      }
+
+    });
+   event.preventDefault();
+    });
+});

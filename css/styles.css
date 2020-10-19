@@ -1,5 +1,9 @@
-.welcome{
+body{
+    background-color: lightyellow;
+}
 
+.welcome{
+background-color: lightpink;
 }
 
 #about-image{
@@ -15,15 +19,15 @@ img#about{
 }
 
 .Chicken{
-
+background-color: lightskyblue;
 }
 
 .Margherita{
-
+background-color: lavenderblush;
 }
 
 .Hawaiian{
-
+background-color: lightsteelblue;
 }
 
 img#Chicken{
@@ -42,4 +46,25 @@ img#Hawaiian{
     margin: 5px;
     margin-top: 15px;
     padding: 15px;
+}
+
+#finallmessage{
+    display: none;
+}
+
+  #addedprice{
+    display: none;
+}
+
+.tabulation{
+    display: none;
+   
+}
+
+.deliver{
+    display: none;
+}
+
+.delivery{
+    display: none;
 }
