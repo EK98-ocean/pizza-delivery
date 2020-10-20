@@ -25,7 +25,7 @@ HTML, JavaScript and CSS.
 EK98-Ocean, contact via email: gakungr@gmail.com
 
 ## Link to live site
-https://ek98-ocean.github.io/delani-studio
+https://ek98-ocean.github.io/pizza-delivery
 
 ### License
 *GNU General Public License*
