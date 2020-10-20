@@ -21,61 +21,62 @@ $(document).ready(function(){
      $.each($("input[name='toppings']:checked"), function(){            
         ptopping.push($(this).val());
      });
-     console.log(ptopping.join(", "));
+     
+    console.log(ptopping.join(", "));
 
-     switch(psize){
+    switch(psize){
         case "0":
-          price = 0;
+            price = 0;
         break;
-        case "large":
-           price = 1400;
-           console.log("The price is " + price);
-         break;
-         case "medium":
+        case "Large":
+            price = 1400;
+            console.log("The price is " + price);
+        break;
+        case "Medium":
            price = 1000;
            console.log("The price is " + price);
-         break;
-         case "small":
+        break;
+        case "Small":
            price = 700;
            console.log("The price is " + price);
         break;
-         default:
+        default:
            console.log("Error, please enter a pizza size!"); 
-       }
+    }
 
-     switch(pcrust){
+    switch(pcrust){
         case "0":
-          crust_price = 0;
+            crust_price = 0;
         break;
         case "Crispy":
-          crust_price = 100;
+            crust_price = 100;
         break;
         case "Stuffed":
-          crust_price = 200;
+            crust_price = 200;
         break;
         case "Gluten-free":
-          crust_price = 200;
+            crust_price = 200;
         break;
         default:
-          console.log("No price"); 
-      }
+            console.log("No price"); 
+    }
 
     let topping_value = ptopping.length * 50;
     console.log("Topping value " + topping_value);
 
   // Alert to select pizza size
-  if((psize == "0") && (pcrust == "0")){
-    console.log("nothing selected");
-    $("button.proceed").show();
-    $("#info").show();
-    $("div.tabulation").hide();
-    alert("Please select your pizza size and crust");
-  }
-  else{
-    $("button.proceed").hide();
-    $("#info").hide();
-    $("div.tabulation").toggle();
-  }
+    if((psize == "0") && (pcrust == "0")){
+        console.log("nothing selected");
+        $("button.proceed").show();
+        $("#info").show();
+        $("div.tabulation").hide();
+        alert("Please select your pizza size and crust!");
+    }
+    else{
+        $("button.proceed").hide();
+        $("#info").hide();
+        $("div.tabulation").toggle();
+    }
 
 
     total = price + crust_price + topping_value;
@@ -85,15 +86,15 @@ $(document).ready(function(){
 
     
     // Query HTML for selections and add to IDs in order details
-      $("#pizzasize").html( $("#size option:selected").val());
-      $("#pizzaname").html($("#name option:selected").val());
-      $("#pizzacrust").html($("#crust option:selected").val());
-      $("#pizzatopping").html(ptopping.join(", "));
-      $("#totals").html(total);
-      console.log(ptopping.join(", "));
+    $("#pizzasize").html( $("#size option:selected").val());
+    $("#pizzaname").html($("#name option:selected").val());
+    $("#pizzacrust").html($("#crust option:selected").val());
+    $("#pizzatopping").html(ptopping.join(", "));
+    $("#totals").html(total);
+    console.log(ptopping.join(", "));
   
     //   "Add another pizza" button functionality, including constructor function
-      $("button.addPizza").click(function(){
+    $("button.addPizza").click(function(){
         let pname = $("#name option:selected").val();
         let psize = $("#size option:selected").val();
         let pcrust = $("#crust option:selected").val();
@@ -115,15 +116,15 @@ $(document).ready(function(){
               case "0":
                 price =0;
               break;
-              case "large":
+              case "Large":
                  price = 1400;
                  console.log("The price is " + price);
                break;
-               case "medium":
+               case "Medium":
                  price = 1000;
                  console.log("The price is " + price);
                break;
-               case "small":
+               case "Small":
                  price = 700;
                  console.log("The price is " + price);
                 break;
@@ -159,7 +160,7 @@ $(document).ready(function(){
      
       var newOrder = new Pizzabuilder(pname, psize, pcrust, ptopping, total);
 
-      $("#ordersmade").append('</td><td id="pizzasize">' + newOrder.size + '<tr><td id="pizzaname">' + newOrder.name + '</td><td id="pizzacrust">'+newOrder.crust + '</td><td id="pizzatopping">' + newOrder.topping + '</td><td id="totals">' + newOrder.total + '</td></tr>');
+      $("#ordersmade").append('<tr><td id="pizzasize">' + newOrder.size + '</td><td id="pizzaname">' + newOrder.name + '</td><td id="pizzacrust">'+newOrder.crust + '</td><td id="pizzatopping">' + newOrder.topping + '</td><td id="totals">' + newOrder.total + '</td></tr>');
       console.log(newOrder);     
     });
 });
@@ -172,10 +173,10 @@ $("button#checkout").click(function(){
     $("button.deliver").toggle();
     $("#addedprice").toggle();
     $("#pizzatotal").append("Your total is " + checkoutTotal + " KES");
-  });
+});
 
 //   delivery fee addition
-  $("button.deliver").click(function(){
+$("button.deliver").click(function(){
     $(".pizzatable").hide();
     $(".tabulation h2").hide();
     $(".delivery").toggle();
@@ -185,9 +186,9 @@ $("button#checkout").click(function(){
     let deliverytotal= checkoutTotal + 100;
     console.log("You will pay " + deliverytotal + " KES on delivery.");
     $("#totalbill").append("Your total including the delivery fee is: " + deliverytotal + " KES");
-  });
+});
 
-  $("button#final-order").click(function(event){
+$("button#final-order").click(function(event){
     event.preventDefault();
 
     $("#pizzatotal").hide();
@@ -205,14 +206,13 @@ $("button#checkout").click(function(){
         $("#finallmessage").append("Thank you " + customer + ", we are preparing your pizza! Please be prepared to have it delivered at "+ location + ". You are reminded that the total due is " + deliverytotal + " KES. Please have it ready, and please consider a tip!");
         $("#totalbill").hide();
         $("#finallmessage").toggle();
-      }
+    }
       
-      else {
+    else {
         alert("Please enter your delivery details.");
         $(".delivery").show();
         $("button#final-order").show();
-      }
-
+    }
     });
    event.preventDefault();
     });
