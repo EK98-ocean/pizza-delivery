@@ -137,15 +137,15 @@ $(document).ready(function(){
                 break;
                 case "Crispy":
                   crust_price = 100;
-                  console.log("The price is" + crust_price);
+                  console.log("The price is " + crust_price);
                 break;
                 case "Stuffed":
                   crust_price = 200;
-                  console.log("The price is" + crust_price);
+                  console.log("The price is " + crust_price);
                 break;
                 case "Gluten-free":
                   crust_price = 200;
-                  console.log("The price is" + crust_price);
+                  console.log("The price is " + crust_price);
                 break;
                 default:
                   console.log("error"); 
@@ -160,7 +160,7 @@ $(document).ready(function(){
      
       var newOrder = new Pizzabuilder(pname, psize, pcrust, ptopping, total);
 
-      $("#ordersmade").append('<tr><td id="pizzasize">' + newOrder.size + '</td><td id="pizzaname">' + newOrder.name + '</td><td id="pizzacrust">'+newOrder.crust + '</td><td id="pizzatopping">' + newOrder.topping + '</td><td id="totals">' + newOrder.total + '</td></tr>');
+      $("#ordersmade").append('<tr><td id="pizzasize">' + newOrder.size + '</td><td id="pizzaname">' + newOrder.name + '</td><td id="pizzacrust">' + newOrder.crust + '</td><td id="pizzatopping">' + newOrder.topping + '</td><td id="totals">' + newOrder.total + '</td></tr>');
       console.log(newOrder);     
     });
 });
@@ -175,7 +175,7 @@ $("button#checkout").click(function(){
     $("#pizzatotal").append("Your total is " + checkoutTotal + " KES");
 });
 
-//   delivery fee addition
+//   Delivery fee addition
 $("button.deliver").click(function(){
     $(".pizzatable").hide();
     $(".tabulation h2").hide();
