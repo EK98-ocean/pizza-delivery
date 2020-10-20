@@ -14,14 +14,34 @@ function Pizzabuilder (name, size, crust, topping, total){
 
 $(document).ready(function(){
     $("button.proceed").click(function(event){
-        let pname = $(".name option:selected").val();
         let psize = $("#size option:selected").val();
+        let pname = $("#name option:selected").val();
         let pcrust = $("#crust option:selected").val();
         let ptopping = [];
      $.each($("input[name='toppings']:checked"), function(){            
         ptopping.push($(this).val());
      });
      console.log(ptopping.join(", "));
+
+     switch(psize){
+        case "0":
+          price = 0;
+        break;
+        case "large":
+           price = 1400;
+           console.log("The price is " + price);
+         break;
+         case "medium":
+           price = 1000;
+           console.log("The price is " + price);
+         break;
+         case "small":
+           price = 700;
+           console.log("The price is " + price);
+        break;
+         default:
+           console.log("Error, please enter a pizza size!"); 
+       }
 
      switch(pcrust){
         case "0":
@@ -40,24 +60,9 @@ $(document).ready(function(){
           console.log("No price"); 
       }
 
-     switch(psize){
-        case "0":
-          price =0;
-        break;
-        case "large":
-           price = 1400;
-           console.log(price);
-         break;
-         case "medium":
-           price = 1000;
-           console.log("The price is " + price);
-         break;
-         case "small":
-           price = 700;
-           console.log(price);
-         default:
-           console.log("Error, please enter a pizza size!"); 
-       }
+    let topping_value = ptopping.length * 50;
+    console.log("Topping value " + topping_value);
+
   // Alert to select pizza size
   if((psize == "0") && (pcrust == "0")){
     console.log("nothing selected");
@@ -72,8 +77,6 @@ $(document).ready(function(){
     $("div.tabulation").toggle();
   }
 
-    let topping_value = ptopping.length * 50;
-        console.log("Topping value " + topping_value);
 
     total = price + crust_price + topping_value;
     console.log(total);
@@ -81,10 +84,9 @@ $(document).ready(function(){
     checkoutTotal = checkoutTotal + total;
 
     
-
     // Query HTML for selections and add to IDs in order details
-      $("#pizzaname").html($(".name option:selected").val());
       $("#pizzasize").html( $("#size option:selected").val());
+      $("#pizzaname").html($("#name option:selected").val());
       $("#pizzacrust").html($("#crust option:selected").val());
       $("#pizzatopping").html(ptopping.join(", "));
       $("#totals").html(total);
@@ -92,7 +94,7 @@ $(document).ready(function(){
   
     //   "Add another pizza" button functionality, including constructor function
       $("button.addPizza").click(function(){
-        let pname = $(".name option:selected").val();
+        let pname = $("#name option:selected").val();
         let psize = $("#size option:selected").val();
         let pcrust = $("#crust option:selected").val();
         let ptopping = [];
@@ -100,7 +102,7 @@ $(document).ready(function(){
             ptopping.push($(this).val());
         });
         $("button.addPizza").click(function(){
-            let pname = $(".name option:selected").val();
+            let pname = $("#name option:selected").val();
             let psize = $("#size option:selected").val();
             let pcrust = $("#crust option:selected").val();
             let ptopping = [];
@@ -115,7 +117,7 @@ $(document).ready(function(){
               break;
               case "large":
                  price = 1400;
-                 console.log(price);
+                 console.log("The price is " + price);
                break;
                case "medium":
                  price = 1000;
@@ -123,7 +125,8 @@ $(document).ready(function(){
                break;
                case "small":
                  price = 700;
-                 console.log(price);
+                 console.log("The price is " + price);
+                break;
                default:
                  console.log("error"); 
              }
@@ -133,15 +136,18 @@ $(document).ready(function(){
                 break;
                 case "Crispy":
                   crust_price = 100;
+                  console.log("The price is" + crust_price);
                 break;
                 case "Stuffed":
                   crust_price = 200;
+                  console.log("The price is" + crust_price);
                 break;
                 case "Gluten-free":
                   crust_price = 200;
+                  console.log("The price is" + crust_price);
                 break;
                 default:
-                  console.log("No price"); 
+                  console.log("error"); 
               }
               let topping_value = ptopping.length * 50;
               console.log("Topping value " + topping_value);
@@ -153,7 +159,7 @@ $(document).ready(function(){
      
       var newOrder = new Pizzabuilder(pname, psize, pcrust, ptopping, total);
 
-      $("#ordersmade").append('<tr><td id="pizzaname">' + newOrder.name + '</td><td id="pizzasize">' + newOrder.size + '</td><td id="pizzacrust">'+newOrder.crust + '</td><td id="pizzatopping">' + newOrder.topping + '</td><td id="totals">' + newOrder.total + '</td></tr>');
+      $("#ordersmade").append('</td><td id="pizzasize">' + newOrder.size + '<tr><td id="pizzaname">' + newOrder.name + '</td><td id="pizzacrust">'+newOrder.crust + '</td><td id="pizzatopping">' + newOrder.topping + '</td><td id="totals">' + newOrder.total + '</td></tr>');
       console.log(newOrder);     
     });
 });
@@ -189,12 +195,12 @@ $("button#checkout").click(function(){
     $("button#final-order").hide();
     let deliverytotal= checkoutTotal + 100;
     console.log("Your final bill is: " + deliverytotal + " KES");
-    let customer = $("input#name").val();
+    let customer = $("input#names").val();
     let phone = $("input#phone").val();
     let location = $("input#location").val();
 
     // Order accepted message if delivery details provided
-    if ($("input#name").val() && $("input#phone").val() && $("input#location").val()!=""){
+    if ($("input#names").val() && $("input#phone").val() && $("input#location").val()!=""){
   
         $("#finallmessage").append("Thank you " + customer + ", we are preparing your pizza! Please be prepared to have it delivered at "+ location + ". You are reminded that the total due is " + deliverytotal + " KES. Please have it ready, and please consider a tip!");
         $("#totalbill").hide();
